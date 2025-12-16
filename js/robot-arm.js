@@ -62,6 +62,11 @@ class RobotArm {
         this.lastMouseMove = Date.now();
         this.idleTimeout = 3000; // Switch to idle after 3 seconds
         
+        // Gripper state
+        this.gripperClosed = false;
+        this.gripperAmount = 0; // 0 = open, 1 = closed
+        this.gripperTarget = 0;
+        
         this.init();
     }
     
@@ -115,6 +120,24 @@ class RobotArm {
             this.idleMode = false;
         });
         
+        // Click to grip
+        window.addEventListener('mousedown', () => {
+            this.gripperTarget = 1;
+        });
+        
+        window.addEventListener('mouseup', () => {
+            this.gripperTarget = 0;
+        });
+        
+        // Touch grip support
+        window.addEventListener('touchstart', () => {
+            this.gripperTarget = 1;
+        });
+        
+        window.addEventListener('touchend', () => {
+            this.gripperTarget = 0;
+        });
+        
         // Resize handler with debounce
         let resizeTimeout;
         window.addEventListener('resize', () => {
@@ -127,9 +150,14 @@ class RobotArm {
     solveIK(targetX, targetY) {
         const totalLength = this.segments.reduce((sum, s) => sum + s.length, 0);
         
-        // Calculate distance to target
-        const dx = targetX - this.base.x;
-        const dy = targetY - this.base.y;
+        // Shoulder position (on top of dome)
+        const shoulderOffset = 40;
+        const shoulderX = this.base.x;
+        const shoulderY = this.base.y - shoulderOffset;
+        
+        // Calculate distance to target from shoulder
+        const dx = targetX - shoulderX;
+        const dy = targetY - shoulderY;
         const distance = Math.sqrt(dx * dx + dy * dy);
         
         // Clamp target if too far
@@ -138,16 +166,16 @@ class RobotArm {
         
         if (distance > totalLength * 0.95) {
             const scale = (totalLength * 0.95) / distance;
-            clampedX = this.base.x + dx * scale;
-            clampedY = this.base.y + dy * scale;
+            clampedX = shoulderX + dx * scale;
+            clampedY = shoulderY + dy * scale;
         }
         
-        // Joint positions
-        let joints = [{ x: this.base.x, y: this.base.y }];
+        // Joint positions - starting from shoulder
+        let joints = [{ x: shoulderX, y: shoulderY }];
         
         // Initialize joints in current configuration
-        let currentX = this.base.x;
-        let currentY = this.base.y;
+        let currentX = shoulderX;
+        let currentY = shoulderY;
         for (let i = 0; i < this.segments.length; i++) {
             currentX += this.segments[i].length * Math.cos(this.segments[i].angle);
             currentY += this.segments[i].length * Math.sin(this.segments[i].angle);
@@ -174,8 +202,8 @@ class RobotArm {
                 }
             }
             
-            // Forward reaching (from base to end effector)
-            joints[0] = { x: this.base.x, y: this.base.y };
+            // Forward reaching (from shoulder to end effector)
+            joints[0] = { x: shoulderX, y: shoulderY };
             
             for (let i = 0; i < this.segments.length; i++) {
                 const dx = joints[i + 1].x - joints[i].x;
@@ -210,14 +238,15 @@ class RobotArm {
     
     // Idle animation - gentle waving motion
     getIdleTarget() {
-        const centerX = this.base.x + 120;
-        const centerY = this.base.y - 80;
-        const radiusX = 50;
-        const radiusY = 30;
+        const shoulderY = this.base.y - 40;
+        const centerX = this.base.x + 140;
+        const centerY = shoulderY - 60;
+        const radiusX = 60;
+        const radiusY = 40;
         
         return {
-            x: centerX + Math.sin(this.time * 0.8) * radiusX + Math.sin(this.time * 1.3) * 20,
-            y: centerY + Math.cos(this.time * 0.6) * radiusY + Math.cos(this.time * 1.1) * 15
+            x: centerX + Math.sin(this.time * 0.8) * radiusX + Math.sin(this.time * 1.3) * 25,
+            y: centerY + Math.cos(this.time * 0.6) * radiusY + Math.cos(this.time * 1.1) * 20
         };
     }
     
@@ -242,6 +271,10 @@ class RobotArm {
         this.smoothTarget.x += (actualTarget.x - this.smoothTarget.x) * smoothing;
         this.smoothTarget.y += (actualTarget.y - this.smoothTarget.y) * smoothing;
         
+        // Animate gripper open/close
+        const gripSpeed = 0.15;
+        this.gripperAmount += (this.gripperTarget - this.gripperAmount) * gripSpeed;
+        
         // Solve inverse kinematics
         this.solveIK(this.smoothTarget.x, this.smoothTarget.y);
     }
@@ -251,9 +284,11 @@ class RobotArm {
         this.ctx.clearRect(0, 0, this.width, this.height);
         
         // Calculate joint positions for drawing
-        let joints = [{ x: this.base.x, y: this.base.y }];
+        // First joint sits on top of the dome (offset up from base)
+        const shoulderOffset = 40; // Height above base where arm connects
+        let joints = [{ x: this.base.x, y: this.base.y - shoulderOffset }];
         let currentX = this.base.x;
-        let currentY = this.base.y;
+        let currentY = this.base.y - shoulderOffset;
         
         for (let i = 0; i < this.segments.length; i++) {
             currentX += this.segments[i].length * Math.cos(this.segments[i].angle);
@@ -304,45 +339,117 @@ class RobotArm {
         const ctx = this.ctx;
         const { x, y } = this.base;
         
-        // Base plate
         ctx.save();
         
-        // Ground shadow
-        ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+        // Large ground shadow for grounding effect
+        ctx.fillStyle = 'rgba(0, 0, 0, 0.4)';
         ctx.beginPath();
-        ctx.ellipse(x, y + 5, 35, 8, 0, 0, Math.PI * 2);
+        ctx.ellipse(x, y + 8, 50, 12, 0, 0, Math.PI * 2);
         ctx.fill();
         
-        // Base cylinder
-        const gradient = ctx.createLinearGradient(x - 30, y, x + 30, y);
-        gradient.addColorStop(0, this.colors.metal);
-        gradient.addColorStop(0.5, this.colors.metalLight);
-        gradient.addColorStop(1, this.colors.metal);
+        // Ground plate / floor connection
+        const plateGradient = ctx.createLinearGradient(x - 45, y, x + 45, y);
+        plateGradient.addColorStop(0, '#0a0a12');
+        plateGradient.addColorStop(0.3, this.colors.metal);
+        plateGradient.addColorStop(0.7, this.colors.metal);
+        plateGradient.addColorStop(1, '#0a0a12');
         
-        ctx.fillStyle = gradient;
+        ctx.fillStyle = plateGradient;
         ctx.beginPath();
-        ctx.moveTo(x - 30, y);
-        ctx.lineTo(x - 25, y - 20);
-        ctx.lineTo(x + 25, y - 20);
-        ctx.lineTo(x + 30, y);
+        ctx.ellipse(x, y, 45, 10, 0, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Plate rim glow
+        ctx.strokeStyle = this.colors.primaryDim;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.ellipse(x, y, 45, 10, 0, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // Spherical dome base
+        const domeRadius = 35;
+        const domeGradient = ctx.createRadialGradient(
+            x - 10, y - domeRadius * 0.6, 5,
+            x, y - domeRadius * 0.3, domeRadius
+        );
+        domeGradient.addColorStop(0, this.colors.metalLight);
+        domeGradient.addColorStop(0.4, this.colors.metal);
+        domeGradient.addColorStop(0.8, '#0f0f1a');
+        domeGradient.addColorStop(1, this.colors.joint);
+        
+        ctx.fillStyle = domeGradient;
+        ctx.beginPath();
+        ctx.arc(x, y - 5, domeRadius, Math.PI, 0, false);
+        ctx.quadraticCurveTo(x + domeRadius, y, x + 40, y);
+        ctx.lineTo(x - 40, y);
+        ctx.quadraticCurveTo(x - domeRadius, y, x - domeRadius, y - 5);
         ctx.closePath();
         ctx.fill();
         
-        // Base rim glow
+        // Dome highlight arc
+        ctx.strokeStyle = this.colors.primaryDim;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(x, y - 5, domeRadius - 2, Math.PI * 1.15, Math.PI * 1.85, false);
+        ctx.stroke();
+        
+        // Central rotating turret
+        const turretGradient = ctx.createRadialGradient(x, y - 25, 5, x, y - 20, 25);
+        turretGradient.addColorStop(0, this.colors.metalLight);
+        turretGradient.addColorStop(0.5, this.colors.metal);
+        turretGradient.addColorStop(1, '#0a0a15');
+        
+        ctx.fillStyle = turretGradient;
+        ctx.beginPath();
+        ctx.arc(x, y - 20, 22, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Turret ring
         ctx.strokeStyle = this.colors.primary;
         ctx.lineWidth = 2;
         ctx.beginPath();
-        ctx.moveTo(x - 25, y - 20);
-        ctx.lineTo(x + 25, y - 20);
+        ctx.arc(x, y - 20, 18, 0, Math.PI * 2);
         ctx.stroke();
         
-        // Accent lights
+        // Inner tech ring with rotation animation
+        ctx.save();
+        ctx.translate(x, y - 20);
+        ctx.rotate(this.time * 0.5);
+        
+        ctx.strokeStyle = this.colors.primaryDim;
+        ctx.lineWidth = 1;
+        ctx.setLineDash([8, 4]);
+        ctx.beginPath();
+        ctx.arc(0, 0, 14, 0, Math.PI * 2);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        
+        ctx.restore();
+        
+        // Center power core glow
         ctx.fillStyle = this.colors.primary;
         ctx.shadowColor = this.colors.primary;
-        ctx.shadowBlur = 10;
+        ctx.shadowBlur = 15;
         ctx.beginPath();
-        ctx.arc(x - 15, y - 10, 3, 0, Math.PI * 2);
-        ctx.arc(x + 15, y - 10, 3, 0, Math.PI * 2);
+        ctx.arc(x, y - 20, 6, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Pulsing core
+        ctx.globalAlpha = 0.4 + Math.sin(this.time * 4) * 0.3;
+        ctx.beginPath();
+        ctx.arc(x, y - 20, 10, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Side accent lights on dome
+        ctx.globalAlpha = 1;
+        ctx.shadowBlur = 8;
+        ctx.fillStyle = this.colors.accent;
+        ctx.shadowColor = this.colors.accent;
+        ctx.beginPath();
+        ctx.arc(x - 25, y - 15, 3, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(x + 25, y - 15, 3, 0, Math.PI * 2);
         ctx.fill();
         
         ctx.restore();
@@ -458,57 +565,105 @@ class RobotArm {
         ctx.translate(pos.x, pos.y);
         ctx.rotate(angle);
         
-        // Gripper base
-        const gradient = ctx.createLinearGradient(-8, -8, 8, 8);
+        // Wrist joint
+        const wristGradient = ctx.createRadialGradient(0, 0, 3, 0, 0, 12);
+        wristGradient.addColorStop(0, this.colors.metalLight);
+        wristGradient.addColorStop(0.6, this.colors.metal);
+        wristGradient.addColorStop(1, this.colors.joint);
+        
+        ctx.fillStyle = wristGradient;
+        ctx.beginPath();
+        ctx.arc(0, 0, 10, 0, Math.PI * 2);
+        ctx.fill();
+        
+        // Wrist ring
+        ctx.strokeStyle = this.colors.primary;
+        ctx.lineWidth = 1.5;
+        ctx.beginPath();
+        ctx.arc(0, 0, 8, 0, Math.PI * 2);
+        ctx.stroke();
+        
+        // Gripper base housing
+        const gradient = ctx.createLinearGradient(-8, -12, 8, 12);
         gradient.addColorStop(0, this.colors.metal);
         gradient.addColorStop(0.5, this.colors.metalLight);
         gradient.addColorStop(1, this.colors.metal);
         
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.roundRect(-6, -10, 12, 20, 3);
+        ctx.roundRect(6, -8, 16, 16, 3);
         ctx.fill();
         
-        // Gripper fingers
-        const fingerOpen = 6 + Math.sin(this.time * 2) * 2;
+        // Housing detail line
+        ctx.strokeStyle = this.colors.primaryDim;
+        ctx.lineWidth = 1;
+        ctx.beginPath();
+        ctx.moveTo(10, -6);
+        ctx.lineTo(10, 6);
+        ctx.stroke();
         
-        ctx.fillStyle = this.colors.metalLight;
+        // Gripper fingers - interpolate between open (10) and closed (2)
+        const fingerOpen = 10 - (this.gripperAmount * 8);
+        const fingerLength = 22;
+        
+        // Finger gradient
+        const fingerGradient = ctx.createLinearGradient(18, -10, 18, 10);
+        fingerGradient.addColorStop(0, this.colors.metalLight);
+        fingerGradient.addColorStop(0.5, this.colors.metal);
+        fingerGradient.addColorStop(1, this.colors.metalLight);
+        
+        ctx.fillStyle = fingerGradient;
         
         // Top finger
         ctx.beginPath();
-        ctx.moveTo(8, -fingerOpen);
-        ctx.lineTo(25, -fingerOpen - 3);
-        ctx.lineTo(28, -fingerOpen);
-        ctx.lineTo(25, -fingerOpen + 3);
-        ctx.lineTo(8, -fingerOpen + 2);
+        ctx.moveTo(20, -4);
+        ctx.lineTo(20 + fingerLength - 5, -fingerOpen - 2);
+        ctx.lineTo(20 + fingerLength, -fingerOpen);
+        ctx.lineTo(20 + fingerLength - 3, -fingerOpen + 3);
+        ctx.lineTo(20, 0);
         ctx.closePath();
         ctx.fill();
         
         // Bottom finger
         ctx.beginPath();
-        ctx.moveTo(8, fingerOpen);
-        ctx.lineTo(25, fingerOpen + 3);
-        ctx.lineTo(28, fingerOpen);
-        ctx.lineTo(25, fingerOpen - 3);
-        ctx.lineTo(8, fingerOpen - 2);
+        ctx.moveTo(20, 4);
+        ctx.lineTo(20 + fingerLength - 5, fingerOpen + 2);
+        ctx.lineTo(20 + fingerLength, fingerOpen);
+        ctx.lineTo(20 + fingerLength - 3, fingerOpen - 3);
+        ctx.lineTo(20, 0);
         ctx.closePath();
         ctx.fill();
         
-        // Finger tips glow
-        ctx.fillStyle = this.colors.accent;
-        ctx.shadowColor = this.colors.accent;
-        ctx.shadowBlur = 6;
+        // Finger edges
+        ctx.strokeStyle = this.colors.primaryDim;
+        ctx.lineWidth = 1;
         ctx.beginPath();
-        ctx.arc(28, -fingerOpen, 2, 0, Math.PI * 2);
-        ctx.arc(28, fingerOpen, 2, 0, Math.PI * 2);
+        ctx.moveTo(20, -4);
+        ctx.lineTo(20 + fingerLength - 5, -fingerOpen - 2);
+        ctx.moveTo(20, 4);
+        ctx.lineTo(20 + fingerLength - 5, fingerOpen + 2);
+        ctx.stroke();
+        
+        // Finger tips glow - brighter when gripping
+        const tipGlow = this.gripperAmount > 0.5 ? this.colors.secondary : this.colors.accent;
+        const tipSize = 2 + this.gripperAmount * 1.5;
+        
+        ctx.fillStyle = tipGlow;
+        ctx.shadowColor = tipGlow;
+        ctx.shadowBlur = 8 + this.gripperAmount * 6;
+        ctx.beginPath();
+        ctx.arc(20 + fingerLength, -fingerOpen, tipSize, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.beginPath();
+        ctx.arc(20 + fingerLength, fingerOpen, tipSize, 0, Math.PI * 2);
         ctx.fill();
         
-        // Tool light
+        // Center tool light
         ctx.fillStyle = this.colors.primary;
         ctx.shadowColor = this.colors.primary;
-        ctx.shadowBlur = 10;
+        ctx.shadowBlur = 12;
         ctx.beginPath();
-        ctx.arc(0, 0, 4, 0, Math.PI * 2);
+        ctx.arc(14, 0, 3, 0, Math.PI * 2);
         ctx.fill();
         
         ctx.restore();
