@@ -1539,6 +1539,312 @@ body {
     }
 }
 
+/* ==================== PID DEMO SECTION ==================== */
+.pid-section {
+    background: var(--bg-darker);
+}
+
+.pid-demo-container {
+    margin-top: 40px;
+}
+
+.pid-demo-wrapper {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.pid-visualization {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+    background: var(--gradient-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.pid-canvas {
+    border-radius: 8px;
+    max-width: 100%;
+}
+
+.pid-stats {
+    position: absolute;
+    top: 30px;
+    left: 30px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    padding: 12px 16px;
+    background: rgba(10, 10, 15, 0.9);
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-family: var(--font-mono);
+    font-size: 12px;
+}
+
+.pid-stat {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+}
+
+.pid-stat .stat-label {
+    color: var(--text-dim);
+}
+
+.pid-stat .stat-value {
+    color: var(--color-primary);
+    font-weight: 500;
+    min-width: 50px;
+    text-align: right;
+}
+
+.pid-controls {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    padding: 24px;
+    background: var(--gradient-card);
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+}
+
+.pid-sliders {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+}
+
+.slider-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.slider-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.slider-header label {
+    font-family: var(--font-display);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--text-primary);
+}
+
+.gain-label {
+    font-family: var(--font-body);
+    font-size: 12px;
+    font-weight: 400;
+    color: var(--text-dim);
+}
+
+.slider-value {
+    font-family: var(--font-mono);
+    font-size: 16px;
+    color: var(--color-primary);
+    min-width: 40px;
+    text-align: right;
+}
+
+.pid-slider {
+    width: 100%;
+    height: 8px;
+    appearance: none;
+    background: rgba(0, 240, 255, 0.15);
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.pid-slider::-webkit-slider-thumb {
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    background: var(--gradient-primary);
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0 0 15px var(--color-primary-glow);
+    transition: transform 0.2s;
+}
+
+.pid-slider::-webkit-slider-thumb:hover {
+    transform: scale(1.2);
+}
+
+.pid-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    background: var(--color-primary);
+    border-radius: 50%;
+    border: none;
+    cursor: pointer;
+}
+
+.slider-hint {
+    font-size: 11px;
+    color: var(--text-dim);
+    font-style: italic;
+}
+
+.pid-actions {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 16px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.setpoint-buttons,
+.control-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.action-label {
+    font-size: 13px;
+    color: var(--text-dim);
+    margin-right: 4px;
+}
+
+.setpoint-btn {
+    padding: 8px 16px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    color: var(--text-secondary);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.setpoint-btn:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.setpoint-btn.active {
+    color: var(--bg-dark);
+    background: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.pid-btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 18px;
+    font-family: var(--font-body);
+    font-size: 13px;
+    font-weight: 500;
+    color: var(--text-secondary);
+    background: rgba(0, 0, 0, 0.3);
+    border: 1px solid var(--border-color);
+    border-radius: 6px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.pid-btn svg {
+    width: 16px;
+    height: 16px;
+}
+
+.pid-btn:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+}
+
+.disturb-btn:hover {
+    color: #ffbd2e;
+    border-color: #ffbd2e;
+}
+
+.pid-presets {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 10px;
+    padding-top: 16px;
+    border-top: 1px solid var(--border-color);
+}
+
+.preset-label {
+    font-size: 13px;
+    color: var(--text-dim);
+}
+
+.preset-btn {
+    padding: 6px 14px;
+    font-family: var(--font-mono);
+    font-size: 11px;
+    color: var(--text-dim);
+    background: rgba(0, 0, 0, 0.2);
+    border: 1px solid rgba(0, 240, 255, 0.15);
+    border-radius: 4px;
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.preset-btn:hover {
+    color: var(--color-primary);
+    border-color: var(--color-primary);
+    background: var(--color-primary-dim);
+}
+
+/* PID Responsive */
+@media (max-width: 768px) {
+    .pid-sliders {
+        grid-template-columns: 1fr;
+        gap: 16px;
+    }
+    
+    .pid-actions {
+        flex-direction: column;
+        align-items: stretch;
+    }
+    
+    .setpoint-buttons,
+    .control-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .pid-stats {
+        position: static;
+        flex-direction: row;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-bottom: 10px;
+    }
+    
+    .pid-presets {
+        justify-content: center;
+    }
+}
+
+@media (max-width: 480px) {
+    .setpoint-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .pid-btn span {
+        display: none;
+    }
+    
+    .pid-btn {
+        padding: 10px;
+    }
+}
+
 /* ==================== PATH PLANNER SECTION ==================== */
 .path-planner-section {
     background: linear-gradient(180deg, var(--bg-dark) 0%, var(--bg-darker) 100%);

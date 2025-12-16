@@ -113,6 +113,21 @@
         </div>
     </section>
 
+    <!-- PID Ball Balancing Demo Section -->
+    <section id="pid-demo" class="section pid-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// CONTROL SYSTEMS</span>
+                <h2 class="section-title">PID <span class="accent">Ball Balancing</span></h2>
+                <p class="section-description">
+                    Tune a PID controller in real-time! Adjust the gains and watch how the system 
+                    responds to maintain the ball at the target position.
+                </p>
+            </div>
+            <div id="pidDemoContainer" class="pid-demo-container"></div>
+        </div>
+    </section>
+
     <!-- About Section -->
     <section id="about" class="section about">
         <div class="container">
@@ -710,6 +725,7 @@
     <!-- Scripts: config.js must load BEFORE main.js -->
     <script src="js/config.js"></script>
     <script src="js/robot-arm.js"></script>
+    <script src="js/pid-demo.js"></script>
     <script src="js/path-planner.js"></script>
     <script src="js/main.js"></script>
 </body>
