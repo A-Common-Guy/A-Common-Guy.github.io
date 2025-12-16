@@ -72,23 +72,24 @@ class RobotArm {
     }
     
     resize() {
-        const container = this.canvas.parentElement;
-        const rect = container.getBoundingClientRect();
+        // Use full viewport dimensions
+        const width = window.innerWidth;
+        const height = window.innerHeight;
         
         // Set canvas size with device pixel ratio for crisp rendering
         const dpr = window.devicePixelRatio || 1;
-        this.canvas.width = rect.width * dpr;
-        this.canvas.height = rect.height * dpr;
-        this.canvas.style.width = rect.width + 'px';
-        this.canvas.style.height = rect.height + 'px';
+        this.canvas.width = width * dpr;
+        this.canvas.height = height * dpr;
+        this.canvas.style.width = width + 'px';
+        this.canvas.style.height = height + 'px';
         this.ctx.scale(dpr, dpr);
         
-        this.width = rect.width;
-        this.height = rect.height;
+        this.width = width;
+        this.height = height;
         
         // Position base at bottom-left area
-        this.base.x = this.width * 0.15;
-        this.base.y = this.height * 0.85;
+        this.base.x = this.width * 0.12;
+        this.base.y = this.height * 0.88;
         
         // Initialize target
         this.target.x = this.base.x + 150;
@@ -97,27 +98,29 @@ class RobotArm {
     }
     
     setupEventListeners() {
-        // Mouse movement
+        // Mouse movement - canvas is full viewport, so clientX/Y works directly
         window.addEventListener('mousemove', (e) => {
-            const rect = this.canvas.getBoundingClientRect();
-            this.target.x = e.clientX - rect.left;
-            this.target.y = e.clientY - rect.top;
+            this.target.x = e.clientX;
+            this.target.y = e.clientY;
             this.lastMouseMove = Date.now();
             this.idleMode = false;
         });
         
         // Touch support
         window.addEventListener('touchmove', (e) => {
-            const rect = this.canvas.getBoundingClientRect();
             const touch = e.touches[0];
-            this.target.x = touch.clientX - rect.left;
-            this.target.y = touch.clientY - rect.top;
+            this.target.x = touch.clientX;
+            this.target.y = touch.clientY;
             this.lastMouseMove = Date.now();
             this.idleMode = false;
         });
         
-        // Resize handler
-        window.addEventListener('resize', () => this.resize());
+        // Resize handler with debounce
+        let resizeTimeout;
+        window.addEventListener('resize', () => {
+            clearTimeout(resizeTimeout);
+            resizeTimeout = setTimeout(() => this.resize(), 100);
+        });
     }
     
     // FABRIK (Forward And Backward Reaching Inverse Kinematics) algorithm
