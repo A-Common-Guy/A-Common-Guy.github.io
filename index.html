@@ -1,0 +1,693 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Giuseppe Festa | Robotics Engineer</title>
+    <meta name="description" content="Portfolio of Giuseppe Festa - Robotics Engineer specializing in humanoid robots and advanced robotic systems.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-grid"></div>
+    <div class="scanline"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav" id="nav">
+        <div class="nav-container">
+            <a href="#home" class="nav-logo">
+                <span class="logo-bracket">[</span>GF<span class="logo-bracket">]</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="#home" class="nav-link active" data-section="home">Home</a></li>
+                <li><a href="#about" class="nav-link" data-section="about">About</a></li>
+                <li><a href="#timeline" class="nav-link" data-section="timeline">Timeline</a></li>
+                <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
+                <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <div class="hero-text">
+                <div class="hero-subtitle glitch-container">
+                    <span class="hero-tag">&lt;</span>
+                    <span class="typing-text" id="typingText"></span>
+                    <span class="cursor">_</span>
+                    <span class="hero-tag">/&gt;</span>
+                </div>
+                <h1 class="hero-title">
+                    <span class="title-line">Giuseppe</span>
+                    <span class="title-line accent">Festa</span>
+                </h1>
+                <p class="hero-description">
+                    Engineering the future of <span class="highlight">humanoid robotics</span>. 
+                    Transforming science fiction into science fact, one servo at a time.
+                </p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">
+                        <span class="btn-text">View Projects</span>
+                        <span class="btn-icon">→</span>
+                    </a>
+                    <a href="documents/Giuseppe_Festa_Curriculum_Vitae.pdf" class="btn btn-secondary" target="_blank">
+                        <span class="btn-text">Download CV</span>
+                        <span class="btn-icon">↓</span>
+                    </a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="profile-frame">
+                    <div class="frame-corner top-left"></div>
+                    <div class="frame-corner top-right"></div>
+                    <div class="frame-corner bottom-left"></div>
+                    <div class="frame-corner bottom-right"></div>
+                    <div class="profile-placeholder" id="profileImage">
+                        <!-- Replace src with your actual photo -->
+                        <img src="assets/images/profile.jpg" alt="Giuseppe Festa" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <div class="placeholder-content">
+                            <div class="placeholder-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="8" r="4"/>
+                                    <path d="M4 20c0-4 4-6 8-6s8 2 8 6"/>
+                                </svg>
+                            </div>
+                            <span>Add photo to<br>assets/images/profile.jpg</span>
+                        </div>
+                    </div>
+                    <div class="frame-data">
+                        <span class="data-label">ID:</span>
+                        <span class="data-value">ROBOTICS_ENG_001</span>
+                    </div>
+                </div>
+                <div class="hero-decoration">
+                    <div class="orbit orbit-1"></div>
+                    <div class="orbit orbit-2"></div>
+                    <div class="orbit orbit-3"></div>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <span>Scroll to explore</span>
+            <div class="scroll-arrow"></div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="section about">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// ABOUT ME</span>
+                <h2 class="section-title">System <span class="accent">Overview</span></h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="terminal-window">
+                        <div class="terminal-header">
+                            <span class="terminal-dot red"></span>
+                            <span class="terminal-dot yellow"></span>
+                            <span class="terminal-dot green"></span>
+                            <span class="terminal-title">giuseppe_festa.bio</span>
+                        </div>
+                        <div class="terminal-body">
+                            <p class="terminal-line">
+                                <span class="prompt">$</span> cat introduction.txt
+                            </p>
+                            <p class="terminal-output">
+                                Hello! I'm a passionate <span class="highlight">Robotics Engineer</span> 
+                                dedicated to pushing the boundaries of what's possible in humanoid robotics 
+                                and autonomous systems.
+                            </p>
+                            <p class="terminal-line">
+                                <span class="prompt">$</span> cat mission.txt
+                            </p>
+                            <p class="terminal-output">
+                                My mission is to bridge the gap between human capabilities and robotic 
+                                potential, creating machines that can work alongside us, assist us, and 
+                                help us explore new frontiers.
+                            </p>
+                            <p class="terminal-line">
+                                <span class="prompt">$</span> cat current_focus.txt
+                            </p>
+                            <p class="terminal-output">
+                                Currently focused on humanoid locomotion, manipulation systems, and 
+                                integrating advanced AI with mechanical precision. Always learning, 
+                                always building, always innovating.
+                            </p>
+                            <p class="terminal-line">
+                                <span class="prompt">$</span> <span class="cursor-blink">_</span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-stats">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                <path d="M2 17l10 5 10-5"/>
+                                <path d="M2 12l10 5 10-5"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="5">0</span>
+                            <span class="stat-label">Years Experience</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="10">0</span>
+                            <span class="stat-label">Projects Completed</span>
+                        </div>
+                    </div>
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <path d="M12 6v6l4 2"/>
+                            </svg>
+                        </div>
+                        <div class="stat-content">
+                            <span class="stat-number" data-count="1000">0</span>
+                            <span class="stat-label">+ Hours of Coding</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Timeline Section -->
+    <section id="timeline" class="section timeline">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// JOURNEY</span>
+                <h2 class="section-title">Career <span class="accent">Timeline</span></h2>
+            </div>
+            <div class="timeline-container">
+                <div class="timeline-line">
+                    <div class="timeline-progress" id="timelineProgress"></div>
+                </div>
+                
+                <!-- Timeline Events - Add new events here following the pattern -->
+                <div class="timeline-event" data-date="2024">
+                    <div class="event-dot">
+                        <div class="dot-pulse"></div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="date-year">2024</span>
+                            <span class="date-month">Present</span>
+                        </div>
+                        <div class="event-card">
+                            <h3 class="event-title">Current Position</h3>
+                            <p class="event-company">Company/Research Lab Name</p>
+                            <p class="event-description">
+                                Working on cutting-edge humanoid robotics projects. 
+                                Developing advanced control systems and motion planning algorithms.
+                            </p>
+                            <div class="event-tags">
+                                <span class="tag">Humanoid Robots</span>
+                                <span class="tag">Control Systems</span>
+                                <span class="tag">ROS2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-event" data-date="2023">
+                    <div class="event-dot">
+                        <div class="dot-pulse"></div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="date-year">2023</span>
+                            <span class="date-month">-</span>
+                        </div>
+                        <div class="event-card">
+                            <h3 class="event-title">Major Project Milestone</h3>
+                            <p class="event-company">Project or Company Name</p>
+                            <p class="event-description">
+                                Description of a significant achievement or project. 
+                                Update this with your actual experience.
+                            </p>
+                            <div class="event-tags">
+                                <span class="tag">Achievement</span>
+                                <span class="tag">Innovation</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="timeline-event" data-date="2022">
+                    <div class="event-dot">
+                        <div class="dot-pulse"></div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="date-year">2022</span>
+                            <span class="date-month">-</span>
+                        </div>
+                        <div class="event-card">
+                            <h3 class="event-title">Education / First Role</h3>
+                            <p class="event-company">University or First Company</p>
+                            <p class="event-description">
+                                Started journey in robotics engineering. 
+                                Add your educational background or early career milestones here.
+                            </p>
+                            <div class="event-tags">
+                                <span class="tag">Robotics</span>
+                                <span class="tag">Engineering</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add more timeline events above this comment -->
+                <!-- Template for new events:
+                <div class="timeline-event" data-date="YEAR">
+                    <div class="event-dot">
+                        <div class="dot-pulse"></div>
+                    </div>
+                    <div class="event-content">
+                        <div class="event-date">
+                            <span class="date-year">YEAR</span>
+                            <span class="date-month">MONTH</span>
+                        </div>
+                        <div class="event-card">
+                            <h3 class="event-title">Title</h3>
+                            <p class="event-company">Company/Institution</p>
+                            <p class="event-description">Description</p>
+                            <div class="event-tags">
+                                <span class="tag">Tag1</span>
+                                <span class="tag">Tag2</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="section projects">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// PORTFOLIO</span>
+                <h2 class="section-title">Featured <span class="accent">Projects</span></h2>
+            </div>
+            <div class="projects-filter">
+                <button class="filter-btn active" data-filter="all">All</button>
+                <button class="filter-btn" data-filter="robotics">Robotics</button>
+                <button class="filter-btn" data-filter="software">Software</button>
+                <button class="filter-btn" data-filter="research">Research</button>
+            </div>
+            <div class="projects-grid">
+                <!-- Project Card Template - Duplicate and modify for new projects -->
+                <article class="project-card" data-category="robotics">
+                    <div class="project-image">
+                        <img src="assets/images/project-placeholder.jpg" alt="Project Name" onerror="this.style.display='none'">
+                        <div class="project-overlay">
+                            <a href="projects/project-1.html" class="project-link">
+                                <span>View Details</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="project-status">
+                            <span class="status-dot"></span>
+                            <span>In Progress</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Robotics</span>
+                        <h3 class="project-title">Humanoid Robot Project</h3>
+                        <p class="project-description">
+                            Brief description of the project. What problem does it solve? 
+                            What technologies are involved?
+                        </p>
+                        <div class="project-tech">
+                            <span>ROS2</span>
+                            <span>Python</span>
+                            <span>C++</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="software">
+                    <div class="project-image">
+                        <img src="assets/images/project-placeholder.jpg" alt="Project Name" onerror="this.style.display='none'">
+                        <div class="project-overlay">
+                            <a href="projects/project-2.html" class="project-link">
+                                <span>View Details</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="project-status completed">
+                            <span class="status-dot"></span>
+                            <span>Completed</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Software</span>
+                        <h3 class="project-title">Control System Software</h3>
+                        <p class="project-description">
+                            Add description for your software project here. 
+                            Highlight key features and achievements.
+                        </p>
+                        <div class="project-tech">
+                            <span>Python</span>
+                            <span>TensorFlow</span>
+                            <span>OpenCV</span>
+                        </div>
+                    </div>
+                </article>
+
+                <article class="project-card" data-category="research">
+                    <div class="project-image">
+                        <img src="assets/images/project-placeholder.jpg" alt="Project Name" onerror="this.style.display='none'">
+                        <div class="project-overlay">
+                            <a href="projects/project-3.html" class="project-link">
+                                <span>View Details</span>
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
+                                </svg>
+                            </a>
+                        </div>
+                        <div class="project-status completed">
+                            <span class="status-dot"></span>
+                            <span>Published</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Research</span>
+                        <h3 class="project-title">Research Paper / Thesis</h3>
+                        <p class="project-description">
+                            Description of your research work. 
+                            Include publication details if applicable.
+                        </p>
+                        <div class="project-tech">
+                            <span>MATLAB</span>
+                            <span>Simulation</span>
+                            <span>Analysis</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Add more project cards here -->
+            </div>
+            <div class="projects-cta">
+                <p>More projects coming soon...</p>
+                <a href="#contact" class="btn btn-secondary">
+                    <span class="btn-text">Get in Touch</span>
+                    <span class="btn-icon">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="section skills">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// CAPABILITIES</span>
+                <h2 class="section-title">Technical <span class="accent">Arsenal</span></h2>
+            </div>
+            <div class="skills-container">
+                <div class="skills-category">
+                    <h3 class="category-title">
+                        <span class="category-icon">⚙️</span>
+                        Robotics & Hardware
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">ROS / ROS2</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Motion Planning</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Control Systems</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Humanoid Locomotion</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="82"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Sensor Integration</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">
+                        <span class="category-icon">💻</span>
+                        Programming
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Python</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="95"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">C/C++</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">MATLAB/Simulink</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Linux/Bash</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Git</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="90"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">
+                        <span class="category-icon">🧠</span>
+                        AI & Vision
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Computer Vision</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Machine Learning</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="78"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Deep Learning</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">SLAM</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Reinforcement Learning</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="70"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="skills-category">
+                    <h3 class="category-title">
+                        <span class="category-icon">🔧</span>
+                        Tools & Frameworks
+                    </h3>
+                    <div class="skills-list">
+                        <div class="skill-item">
+                            <span class="skill-name">Gazebo/Isaac Sim</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="88"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">PyTorch/TensorFlow</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="80"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">OpenCV</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="85"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">CAD (SolidWorks/Fusion)</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="75"></div>
+                            </div>
+                        </div>
+                        <div class="skill-item">
+                            <span class="skill-name">Docker</span>
+                            <div class="skill-bar">
+                                <div class="skill-progress" data-progress="82"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="section contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// CONNECT</span>
+                <h2 class="section-title">Get In <span class="accent">Touch</span></h2>
+            </div>
+            <div class="contact-content">
+                <div class="contact-info">
+                    <p class="contact-intro">
+                        Interested in collaborating on robotics projects or have an opportunity to discuss? 
+                        I'm always open to new challenges and connections.
+                    </p>
+                    <div class="contact-methods">
+                        <a href="mailto:your.email@example.com" class="contact-method">
+                            <div class="method-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <rect x="2" y="4" width="20" height="16" rx="2"/>
+                                    <path d="M22 6L12 13L2 6"/>
+                                </svg>
+                            </div>
+                            <div class="method-details">
+                                <span class="method-label">Email</span>
+                                <span class="method-value">your.email@example.com</span>
+                            </div>
+                        </a>
+                        <a href="https://linkedin.com/in/yourprofile" class="contact-method" target="_blank">
+                            <div class="method-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
+                                    <rect x="2" y="9" width="4" height="12"/>
+                                    <circle cx="4" cy="4" r="2"/>
+                                </svg>
+                            </div>
+                            <div class="method-details">
+                                <span class="method-label">LinkedIn</span>
+                                <span class="method-value">Connect with me</span>
+                            </div>
+                        </a>
+                        <a href="https://github.com/yourusername" class="contact-method" target="_blank">
+                            <div class="method-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                                </svg>
+                            </div>
+                            <div class="method-details">
+                                <span class="method-label">GitHub</span>
+                                <span class="method-value">View my code</span>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <div class="contact-visual">
+                    <div class="robot-terminal">
+                        <div class="terminal-screen">
+                            <div class="terminal-text">
+                                <span class="line">> INITIATING CONNECTION...</span>
+                                <span class="line">> SCANNING OPPORTUNITIES...</span>
+                                <span class="line">> READY TO COLLABORATE</span>
+                                <span class="line blink">> AWAITING INPUT_</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">[</span>GF<span class="logo-bracket">]</span>
+                </div>
+                <p class="footer-text">
+                    Designed & Built by Giuseppe Festa © <span id="currentYear"></span>
+                </p>
+                <div class="footer-links">
+                    <a href="documents/Giuseppe_Festa_Curriculum_Vitae.pdf" target="_blank">CV</a>
+                    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+            <div class="footer-decoration">
+                <div class="circuit-line"></div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+</body>
+</html>
+

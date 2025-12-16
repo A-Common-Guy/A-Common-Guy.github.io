@@ -1,3 +1,29 @@
-theme: jekyll-theme-minimal
-title: Giuseppe Festa's Homepage
-description: Hope to find the time to fill this page with my projects
+# Giuseppe Festa - Robotics Engineer Portfolio
+# GitHub Pages Configuration
+
+# Site settings
+title: Giuseppe Festa | Robotics Engineer
+description: Portfolio of Giuseppe Festa - Robotics Engineer specializing in humanoid robots and advanced robotic systems.
+author: Giuseppe Festa
+url: "https://a-common-guy.github.io"
+baseurl: ""
+
+# Build settings
+# Using static HTML/CSS/JS - no Jekyll theme needed
+plugins: []
+
+# Exclude from build
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - node_modules
+  - vendor
+
+# Include assets
+include:
+  - assets
+  - css
+  - js
+  - documents
+  - projects

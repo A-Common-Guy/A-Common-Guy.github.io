@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Name | Giuseppe Festa</title>
+    <meta name="description" content="Detailed project description for SEO.">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Rajdhani:wght@300;400;500;600;700&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/project.css">
+</head>
+<body>
+    <!-- Animated Background -->
+    <div class="bg-grid"></div>
+    <div class="scanline"></div>
+    
+    <!-- Navigation -->
+    <nav class="nav scrolled" id="nav">
+        <div class="nav-container">
+            <a href="../index.html" class="nav-logo">
+                <span class="logo-bracket">[</span>GF<span class="logo-bracket">]</span>
+            </a>
+            <button class="nav-toggle" id="navToggle" aria-label="Toggle navigation">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+            <ul class="nav-menu" id="navMenu">
+                <li><a href="../index.html#home" class="nav-link">Home</a></li>
+                <li><a href="../index.html#about" class="nav-link">About</a></li>
+                <li><a href="../index.html#timeline" class="nav-link">Timeline</a></li>
+                <li><a href="../index.html#projects" class="nav-link active">Projects</a></li>
+                <li><a href="../index.html#skills" class="nav-link">Skills</a></li>
+                <li><a href="../index.html#contact" class="nav-link">Contact</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <header class="project-hero">
+        <div class="container">
+            <a href="../index.html#projects" class="back-link">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M19 12H5M12 19l-7-7 7-7"/>
+                </svg>
+                <span>Back to Projects</span>
+            </a>
+            
+            <div class="project-hero-content">
+                <div class="project-meta">
+                    <span class="project-category-tag">Robotics</span>
+                    <span class="project-date">2024</span>
+                    <span class="project-status-tag">
+                        <span class="status-indicator"></span>
+                        In Progress
+                    </span>
+                </div>
+                
+                <h1 class="project-hero-title">Project Title Goes Here</h1>
+                
+                <p class="project-hero-description">
+                    A brief but compelling description of the project. What problem does it solve? 
+                    What makes it innovative? This should capture the reader's attention and give 
+                    them a clear idea of what the project is about.
+                </p>
+                
+                <div class="project-links">
+                    <a href="https://github.com/yourusername/project" class="btn btn-primary" target="_blank">
+                        <span class="btn-text">View on GitHub</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                        </svg>
+                    </a>
+                    <a href="#demo" class="btn btn-secondary">
+                        <span class="btn-text">Watch Demo</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <polygon points="5 3 19 12 5 21 5 3"/>
+                        </svg>
+                    </a>
+                    <a href="../documents/project-paper.pdf" class="btn btn-secondary" target="_blank">
+                        <span class="btn-text">Read Paper</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="18" height="18">
+                            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                            <polyline points="14 2 14 8 20 8"/>
+                            <line x1="16" y1="13" x2="8" y2="13"/>
+                            <line x1="16" y1="17" x2="8" y2="17"/>
+                            <polyline points="10 9 9 9 8 9"/>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Project Content -->
+    <main class="project-content">
+        <div class="container">
+            
+            <!-- Featured Image/Video -->
+            <section class="project-section">
+                <div class="featured-media">
+                    <!-- Option 1: Image -->
+                    <img src="../assets/images/projects/project-name/hero.jpg" alt="Project Hero Image" class="featured-image">
+                    
+                    <!-- Option 2: Video (uncomment to use) -->
+                    <!--
+                    <div class="video-container">
+                        <iframe 
+                            src="https://www.youtube.com/embed/VIDEO_ID" 
+                            title="Project Demo Video"
+                            frameborder="0" 
+                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                            allowfullscreen>
+                        </iframe>
+                    </div>
+                    -->
+                </div>
+            </section>
+
+            <!-- Overview -->
+            <section class="project-section">
+                <h2 class="section-heading">
+                    <span class="heading-icon">01</span>
+                    Overview
+                </h2>
+                <div class="section-content">
+                    <p>
+                        Provide a detailed overview of the project. Explain the context, the problem 
+                        you were trying to solve, and why this project matters. This section should 
+                        give readers a complete understanding of the project's purpose and significance.
+                    </p>
+                    <p>
+                        You can include multiple paragraphs to thoroughly explain your work. Consider 
+                        discussing the motivation behind the project, the challenges you anticipated, 
+                        and the goals you set out to achieve.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Technical Details -->
+            <section class="project-section">
+                <h2 class="section-heading">
+                    <span class="heading-icon">02</span>
+                    Technical Approach
+                </h2>
+                <div class="section-content">
+                    <h3>Architecture</h3>
+                    <p>
+                        Describe the technical architecture of your project. What frameworks, 
+                        libraries, or tools did you use? How do the different components interact?
+                    </p>
+                    
+                    <!-- Technical Stack -->
+                    <div class="tech-stack-detailed">
+                        <div class="tech-item">
+                            <h4>Software</h4>
+                            <ul>
+                                <li>ROS2 Humble</li>
+                                <li>Python 3.10+</li>
+                                <li>C++17</li>
+                                <li>PyTorch</li>
+                            </ul>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Hardware</h4>
+                            <ul>
+                                <li>Custom Actuators</li>
+                                <li>IMU Sensors</li>
+                                <li>Force/Torque Sensors</li>
+                                <li>NVIDIA Jetson</li>
+                            </ul>
+                        </div>
+                        <div class="tech-item">
+                            <h4>Tools</h4>
+                            <ul>
+                                <li>Gazebo Simulation</li>
+                                <li>MATLAB/Simulink</li>
+                                <li>Git/GitHub</li>
+                                <li>Docker</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <h3>Key Algorithms</h3>
+                    <p>
+                        Explain the key algorithms or methodologies you implemented. You can include 
+                        code snippets, diagrams, or mathematical formulas if relevant.
+                    </p>
+                    
+                    <!-- Code Block Example -->
+                    <div class="code-block">
+                        <div class="code-header">
+                            <span class="code-language">Python</span>
+                            <span class="code-filename">controller.py</span>
+                        </div>
+                        <pre><code># Example code snippet
+class RobotController:
+    def __init__(self, config):
+        self.config = config
+        self.state = RobotState()
+    
+    def compute_control(self, target_pose):
+        """Compute control signals for the robot."""
+        error = target_pose - self.state.current_pose
+        control = self.pid.compute(error)
+        return control</code></pre>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Gallery -->
+            <section class="project-section">
+                <h2 class="section-heading">
+                    <span class="heading-icon">03</span>
+                    Gallery
+                </h2>
+                <div class="project-gallery">
+                    <div class="gallery-item">
+                        <img src="../assets/images/projects/project-name/image-1.jpg" alt="Description 1">
+                        <p class="gallery-caption">Caption for image 1</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../assets/images/projects/project-name/image-2.jpg" alt="Description 2">
+                        <p class="gallery-caption">Caption for image 2</p>
+                    </div>
+                    <div class="gallery-item">
+                        <img src="../assets/images/projects/project-name/image-3.jpg" alt="Description 3">
+                        <p class="gallery-caption">Caption for image 3</p>
+                    </div>
+                    <div class="gallery-item wide">
+                        <img src="../assets/images/projects/project-name/image-4.jpg" alt="Description 4">
+                        <p class="gallery-caption">Wide image caption</p>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Demo Video -->
+            <section class="project-section" id="demo">
+                <h2 class="section-heading">
+                    <span class="heading-icon">04</span>
+                    Demo Video
+                </h2>
+                <div class="video-container">
+                    <!-- Replace VIDEO_ID with your YouTube video ID -->
+                    <iframe 
+                        src="https://www.youtube.com/embed/VIDEO_ID" 
+                        title="Project Demo"
+                        frameborder="0" 
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                        allowfullscreen>
+                    </iframe>
+                </div>
+                <p class="video-description">
+                    Description of what the demo video shows. Highlight key moments or features 
+                    demonstrated in the video.
+                </p>
+            </section>
+
+            <!-- Results -->
+            <section class="project-section">
+                <h2 class="section-heading">
+                    <span class="heading-icon">05</span>
+                    Results & Achievements
+                </h2>
+                <div class="section-content">
+                    <div class="results-grid">
+                        <div class="result-card">
+                            <span class="result-number">95%</span>
+                            <span class="result-label">Success Rate</span>
+                        </div>
+                        <div class="result-card">
+                            <span class="result-number">2.5x</span>
+                            <span class="result-label">Speed Improvement</span>
+                        </div>
+                        <div class="result-card">
+                            <span class="result-number">50ms</span>
+                            <span class="result-label">Response Time</span>
+                        </div>
+                        <div class="result-card">
+                            <span class="result-number">1st</span>
+                            <span class="result-label">Place Competition</span>
+                        </div>
+                    </div>
+                    
+                    <p>
+                        Describe the results and achievements of your project. Include quantitative 
+                        metrics where possible, and discuss how the project met or exceeded its goals.
+                    </p>
+                </div>
+            </section>
+
+            <!-- Challenges & Learnings -->
+            <section class="project-section">
+                <h2 class="section-heading">
+                    <span class="heading-icon">06</span>
+                    Challenges & Learnings
+                </h2>
+                <div class="section-content">
+                    <div class="challenges-list">
+                        <div class="challenge-item">
+                            <h4>Challenge 1: Real-time Performance</h4>
+                            <p>
+                                Describe a significant challenge you faced and how you overcame it. 
+                                This shows problem-solving skills and resilience.
+                            </p>
+                        </div>
+                        <div class="challenge-item">
+                            <h4>Challenge 2: Sensor Integration</h4>
+                            <p>
+                                Another challenge description. Employers love seeing how you handle 
+                                difficult technical problems.
+                            </p>
+                        </div>
+                    </div>
+                    
+                    <h3>Key Learnings</h3>
+                    <ul class="learnings-list">
+                        <li>Learning point 1 - What did you learn from this project?</li>
+                        <li>Learning point 2 - How has this shaped your approach to future projects?</li>
+                        <li>Learning point 3 - Any skills you developed or improved?</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Future Work -->
+            <section class="project-section">
+                <h2 class="section-heading">
+                    <span class="heading-icon">07</span>
+                    Future Work
+                </h2>
+                <div class="section-content">
+                    <p>
+                        Discuss potential future developments or improvements for this project. 
+                        This shows forward-thinking and long-term vision.
+                    </p>
+                    <ul>
+                        <li>Future improvement 1</li>
+                        <li>Future improvement 2</li>
+                        <li>Future improvement 3</li>
+                    </ul>
+                </div>
+            </section>
+
+            <!-- Documents & Resources -->
+            <section class="project-section">
+                <h2 class="section-heading">
+                    <span class="heading-icon">08</span>
+                    Documents & Resources
+                </h2>
+                <div class="documents-grid">
+                    <a href="../documents/project-paper.pdf" class="document-card" target="_blank">
+                        <div class="document-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                                <polyline points="14 2 14 8 20 8"/>
+                            </svg>
+                        </div>
+                        <div class="document-info">
+                            <span class="document-title">Research Paper</span>
+                            <span class="document-type">PDF • 2.5 MB</span>
+                        </div>
+                    </a>
+                    <a href="../documents/project-presentation.pdf" class="document-card" target="_blank">
+                        <div class="document-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/>
+                                <line x1="8" y1="21" x2="16" y2="21"/>
+                                <line x1="12" y1="17" x2="12" y2="21"/>
+                            </svg>
+                        </div>
+                        <div class="document-info">
+                            <span class="document-title">Presentation Slides</span>
+                            <span class="document-type">PDF • 5.1 MB</span>
+                        </div>
+                    </a>
+                    <a href="https://github.com/yourusername/project" class="document-card" target="_blank">
+                        <div class="document-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+                            </svg>
+                        </div>
+                        <div class="document-info">
+                            <span class="document-title">Source Code</span>
+                            <span class="document-type">GitHub Repository</span>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <!-- Project Navigation -->
+            <nav class="project-nav">
+                <a href="previous-project.html" class="nav-prev">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M19 12H5M12 19l-7-7 7-7"/>
+                    </svg>
+                    <div class="nav-text">
+                        <span class="nav-label">Previous Project</span>
+                        <span class="nav-title">Previous Project Title</span>
+                    </div>
+                </a>
+                <a href="next-project.html" class="nav-next">
+                    <div class="nav-text">
+                        <span class="nav-label">Next Project</span>
+                        <span class="nav-title">Next Project Title</span>
+                    </div>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
+                </a>
+            </nav>
+        </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <span class="logo-bracket">[</span>GF<span class="logo-bracket">]</span>
+                </div>
+                <p class="footer-text">
+                    Designed & Built by Giuseppe Festa © <span id="currentYear"></span>
+                </p>
+                <div class="footer-links">
+                    <a href="../documents/Giuseppe_Festa_Curriculum_Vitae.pdf" target="_blank">CV</a>
+                    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Scripts -->
+    <script src="../js/main.js"></script>
+    <script>
+        // Additional project page functionality
+        document.getElementById('currentYear').textContent = new Date().getFullYear();
+    </script>
+</body>
+</html>
+
