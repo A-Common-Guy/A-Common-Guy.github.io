@@ -35,6 +35,7 @@
                 <li><a href="#about" class="nav-link" data-section="about">About</a></li>
                 <li><a href="#timeline" class="nav-link" data-section="timeline">Timeline</a></li>
                 <li><a href="#projects" class="nav-link" data-section="projects">Projects</a></li>
+                <li><a href="#path-planner" class="nav-link" data-section="path-planner">Demo</a></li>
                 <li><a href="#skills" class="nav-link" data-section="skills">Skills</a></li>
                 <li><a href="#contact" class="nav-link" data-section="contact">Contact</a></li>
             </ul>
@@ -434,6 +435,21 @@
         </div>
     </section>
 
+    <!-- Path Planner Interactive Demo Section -->
+    <section id="path-planner" class="section path-planner-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">// INTERACTIVE DEMO</span>
+                <h2 class="section-title">Path <span class="accent">Planning</span> Visualizer</h2>
+                <p class="section-description">
+                    Explore how robots navigate! Draw obstacles, set waypoints, and watch classic 
+                    motion planning algorithms find the optimal path in real-time.
+                </p>
+            </div>
+            <div id="pathPlannerContainer" class="path-planner-container"></div>
+        </div>
+    </section>
+
     <!-- Skills Section -->
     <section id="skills" class="section skills">
         <div class="container">
@@ -694,6 +710,7 @@
     <!-- Scripts: config.js must load BEFORE main.js -->
     <script src="js/config.js"></script>
     <script src="js/robot-arm.js"></script>
+    <script src="js/path-planner.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
