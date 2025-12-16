@@ -8,6 +8,7 @@
 // ============================================
 
 document.addEventListener('DOMContentLoaded', () => {
+    applyConfig();
     initNavigation();
     initTypingEffect();
     initScrollAnimations();
@@ -17,6 +18,86 @@ document.addEventListener('DOMContentLoaded', () => {
     initCounters();
     updateCurrentYear();
 });
+
+// ============================================
+// APPLY CONFIGURATION
+// ============================================
+
+function applyConfig() {
+    if (typeof CONFIG === 'undefined') {
+        console.warn('CONFIG not loaded. Make sure config.js is included before main.js');
+        return;
+    }
+
+    // Helper function to safely set content
+    const setContent = (selector, content, isHTML = false) => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(el => {
+            if (isHTML) {
+                el.innerHTML = content;
+            } else {
+                el.textContent = content;
+            }
+        });
+    };
+
+    // Helper function to safely set attribute
+    const setAttr = (selector, attr, value) => {
+        const elements = document.querySelectorAll(selector);
+        elements.forEach(el => el.setAttribute(attr, value));
+    };
+
+    // Apply name
+    setContent('[data-config="name-first"]', CONFIG.name.first);
+    setContent('[data-config="name-last"]', CONFIG.name.last);
+    setContent('[data-config="name-full"]', CONFIG.name.full);
+    setContent('[data-config="title"]', CONFIG.title);
+    
+    // Apply tagline
+    setContent('[data-config="tagline"]', CONFIG.tagline, true);
+    
+    // Apply email
+    setContent('[data-config="email"]', CONFIG.email);
+    setAttr('[data-config-href="email"]', 'href', `mailto:${CONFIG.email}`);
+    
+    // Apply social links
+    if (CONFIG.social.github) {
+        setAttr('[data-config-href="github"]', 'href', CONFIG.social.github);
+    }
+    if (CONFIG.social.linkedin) {
+        setAttr('[data-config-href="linkedin"]', 'href', CONFIG.social.linkedin);
+    }
+    
+    // Apply CV link
+    setAttr('[data-config-href="cv"]', 'href', CONFIG.cv);
+    
+    // Apply about section
+    if (CONFIG.about) {
+        setContent('[data-config="about-intro"]', CONFIG.about.intro, true);
+        setContent('[data-config="about-mission"]', CONFIG.about.mission, true);
+        setContent('[data-config="about-focus"]', CONFIG.about.focus, true);
+    }
+    
+    // Apply stats
+    if (CONFIG.stats) {
+        const yearsEl = document.querySelector('[data-config="stat-years"]');
+        const projectsEl = document.querySelector('[data-config="stat-projects"]');
+        const hoursEl = document.querySelector('[data-config="stat-hours"]');
+        
+        if (yearsEl) yearsEl.setAttribute('data-count', CONFIG.stats.yearsExperience);
+        if (projectsEl) projectsEl.setAttribute('data-count', CONFIG.stats.projectsCompleted);
+        if (hoursEl) hoursEl.setAttribute('data-count', CONFIG.stats.hoursOfCoding);
+    }
+    
+    // Apply profile image
+    const profileImg = document.querySelector('[data-config="profile-image"]');
+    if (profileImg && CONFIG.profileImage) {
+        profileImg.src = CONFIG.profileImage;
+    }
+    
+    // Apply profile ID
+    setContent('[data-config="profile-id"]', CONFIG.profileId);
+}
 
 // ============================================
 // NAVIGATION
@@ -43,16 +124,18 @@ function initNavigation() {
     });
 
     // Mobile nav toggle
-    navToggle.addEventListener('click', () => {
-        navToggle.classList.toggle('active');
-        navMenu.classList.toggle('open');
-    });
+    if (navToggle) {
+        navToggle.addEventListener('click', () => {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('open');
+        });
+    }
 
     // Close mobile nav on link click
     navLinks.forEach(link => {
         link.addEventListener('click', () => {
-            navToggle.classList.remove('active');
-            navMenu.classList.remove('open');
+            if (navToggle) navToggle.classList.remove('active');
+            if (navMenu) navMenu.classList.remove('open');
         });
     });
 
@@ -87,13 +170,16 @@ function initTypingEffect() {
     const typingElement = document.getElementById('typingText');
     if (!typingElement) return;
 
-    const phrases = [
-        'Robotics Engineer',
-        'Humanoid Systems Developer',
-        'Control Systems Expert',
-        'AI & Motion Planner',
-        'Innovation Enthusiast'
-    ];
+    // Use phrases from config or fallback to defaults
+    const phrases = (typeof CONFIG !== 'undefined' && CONFIG.typingPhrases) 
+        ? CONFIG.typingPhrases 
+        : [
+            'Robotics Engineer',
+            'Humanoid Systems Developer',
+            'Control Systems Expert',
+            'AI & Motion Planner',
+            'Innovation Enthusiast'
+        ];
     
     let phraseIndex = 0;
     let charIndex = 0;
@@ -307,10 +393,9 @@ function animateCounter(element) {
 // ============================================
 
 function updateCurrentYear() {
-    const yearElement = document.getElementById('currentYear');
-    if (yearElement) {
-        yearElement.textContent = new Date().getFullYear();
-    }
+    const yearElements = document.querySelectorAll('#currentYear, [data-config="current-year"]');
+    const year = new Date().getFullYear();
+    yearElements.forEach(el => el.textContent = year);
 }
 
 // ============================================
@@ -349,15 +434,16 @@ window.addEventListener('scroll', () => {
 // CONSOLE EASTER EGG
 // ============================================
 
-console.log(`
+if (typeof CONFIG !== 'undefined') {
+    console.log(`
 %c
 ╔══════════════════════════════════════════════════════════╗
 ║                                                          ║
-║   🤖 Giuseppe Festa - Robotics Engineer Portfolio 🤖    ║
+║   🤖 ${CONFIG.name.full} - ${CONFIG.title} 🤖
 ║                                                          ║
 ║   Thanks for checking out the code!                      ║
 ║   Feel free to connect with me.                          ║
 ║                                                          ║
 ╚══════════════════════════════════════════════════════════╝
 `, 'color: #00f0ff; font-family: monospace;');
-
+}

@@ -249,6 +249,35 @@ body {
     overflow: hidden;
 }
 
+/* Interactive Robot Arm */
+.robot-arm-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+#robotArmCanvas {
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+/* Ensure hero content is above the robot arm */
+.hero-content {
+    position: relative;
+    z-index: 2;
+}
+
+@media (max-width: 768px) {
+    .robot-arm-container {
+        opacity: 0.6;
+    }
+}
+
 .hero::before {
     content: '';
     position: absolute;

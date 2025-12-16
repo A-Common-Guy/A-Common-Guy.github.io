@@ -43,6 +43,10 @@
 
     <!-- Hero Section -->
     <section id="home" class="hero">
+        <!-- Interactive Robot Arm Canvas -->
+        <div class="robot-arm-container">
+            <canvas id="robotArmCanvas"></canvas>
+        </div>
         <div class="hero-content">
             <div class="hero-text">
                 <div class="hero-subtitle glitch-container">
@@ -52,10 +56,10 @@
                     <span class="hero-tag">/&gt;</span>
                 </div>
                 <h1 class="hero-title">
-                    <span class="title-line">Giuseppe</span>
-                    <span class="title-line accent">Festa</span>
+                    <span class="title-line" data-config="name-first">Giuseppe</span>
+                    <span class="title-line accent" data-config="name-last">Festa</span>
                 </h1>
-                <p class="hero-description">
+                <p class="hero-description" data-config="tagline">
                     Engineering the future of <span class="highlight">humanoid robotics</span>. 
                     Transforming science fiction into science fact, one servo at a time.
                 </p>
@@ -64,7 +68,7 @@
                         <span class="btn-text">View Projects</span>
                         <span class="btn-icon">→</span>
                     </a>
-                    <a href="documents/Giuseppe_Festa_Curriculum_Vitae.pdf" class="btn btn-secondary" target="_blank">
+                    <a href="documents/Giuseppe_Festa_Curriculum_Vitae.pdf" class="btn btn-secondary" target="_blank" data-config-href="cv">
                         <span class="btn-text">Download CV</span>
                         <span class="btn-icon">↓</span>
                     </a>
@@ -78,7 +82,7 @@
                     <div class="frame-corner bottom-right"></div>
                     <div class="profile-placeholder" id="profileImage">
                         <!-- Replace src with your actual photo -->
-                        <img src="assets/images/profile.jpg" alt="Giuseppe Festa" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <img src="assets/images/profile.jpg" alt="Giuseppe Festa" data-config="profile-image" onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
                         <div class="placeholder-content">
                             <div class="placeholder-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
@@ -91,7 +95,7 @@
                     </div>
                     <div class="frame-data">
                         <span class="data-label">ID:</span>
-                        <span class="data-value">ROBOTICS_ENG_001</span>
+                        <span class="data-value" data-config="profile-id">ROBOTICS_ENG_001</span>
                     </div>
                 </div>
                 <div class="hero-decoration">
@@ -127,7 +131,7 @@
                             <p class="terminal-line">
                                 <span class="prompt">$</span> cat introduction.txt
                             </p>
-                            <p class="terminal-output">
+                            <p class="terminal-output" data-config="about-intro">
                                 Hello! I'm a passionate <span class="highlight">Robotics Engineer</span> 
                                 dedicated to pushing the boundaries of what's possible in humanoid robotics 
                                 and autonomous systems.
@@ -135,7 +139,7 @@
                             <p class="terminal-line">
                                 <span class="prompt">$</span> cat mission.txt
                             </p>
-                            <p class="terminal-output">
+                            <p class="terminal-output" data-config="about-mission">
                                 My mission is to bridge the gap between human capabilities and robotic 
                                 potential, creating machines that can work alongside us, assist us, and 
                                 help us explore new frontiers.
@@ -143,7 +147,7 @@
                             <p class="terminal-line">
                                 <span class="prompt">$</span> cat current_focus.txt
                             </p>
-                            <p class="terminal-output">
+                            <p class="terminal-output" data-config="about-focus">
                                 Currently focused on humanoid locomotion, manipulation systems, and 
                                 integrating advanced AI with mechanical precision. Always learning, 
                                 always building, always innovating.
@@ -164,7 +168,7 @@
                             </svg>
                         </div>
                         <div class="stat-content">
-                            <span class="stat-number" data-count="5">0</span>
+                            <span class="stat-number" data-config="stat-years" data-count="5">0</span>
                             <span class="stat-label">Years Experience</span>
                         </div>
                     </div>
@@ -175,7 +179,7 @@
                             </svg>
                         </div>
                         <div class="stat-content">
-                            <span class="stat-number" data-count="10">0</span>
+                            <span class="stat-number" data-config="stat-projects" data-count="10">0</span>
                             <span class="stat-label">Projects Completed</span>
                         </div>
                     </div>
@@ -187,7 +191,7 @@
                             </svg>
                         </div>
                         <div class="stat-content">
-                            <span class="stat-number" data-count="1000">0</span>
+                            <span class="stat-number" data-config="stat-hours" data-count="1000">0</span>
                             <span class="stat-label">+ Hours of Coding</span>
                         </div>
                     </div>
@@ -610,7 +614,7 @@
                         I'm always open to new challenges and connections.
                     </p>
                     <div class="contact-methods">
-                        <a href="mailto:your.email@example.com" class="contact-method">
+                        <a href="mailto:your.email@example.com" class="contact-method" data-config-href="email">
                             <div class="method-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                     <rect x="2" y="4" width="20" height="16" rx="2"/>
@@ -619,10 +623,10 @@
                             </div>
                             <div class="method-details">
                                 <span class="method-label">Email</span>
-                                <span class="method-value">your.email@example.com</span>
+                                <span class="method-value" data-config="email">your.email@example.com</span>
                             </div>
                         </a>
-                        <a href="https://linkedin.com/in/yourprofile" class="contact-method" target="_blank">
+                        <a href="https://linkedin.com/in/yourprofile" class="contact-method" target="_blank" data-config-href="linkedin">
                             <div class="method-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                     <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/>
@@ -635,7 +639,7 @@
                                 <span class="method-value">Connect with me</span>
                             </div>
                         </a>
-                        <a href="https://github.com/yourusername" class="contact-method" target="_blank">
+                        <a href="https://github.com/yourusername" class="contact-method" target="_blank" data-config-href="github">
                             <div class="method-icon">
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                     <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
@@ -672,12 +676,12 @@
                     <span class="logo-bracket">[</span>GF<span class="logo-bracket">]</span>
                 </div>
                 <p class="footer-text">
-                    Designed & Built by Giuseppe Festa © <span id="currentYear"></span>
+                    Designed & Built by <span data-config="name-full">Giuseppe Festa</span> © <span id="currentYear"></span>
                 </p>
                 <div class="footer-links">
-                    <a href="documents/Giuseppe_Festa_Curriculum_Vitae.pdf" target="_blank">CV</a>
-                    <a href="https://github.com/yourusername" target="_blank">GitHub</a>
-                    <a href="https://linkedin.com/in/yourprofile" target="_blank">LinkedIn</a>
+                    <a href="documents/Giuseppe_Festa_Curriculum_Vitae.pdf" target="_blank" data-config-href="cv">CV</a>
+                    <a href="https://github.com/yourusername" target="_blank" data-config-href="github">GitHub</a>
+                    <a href="https://linkedin.com/in/yourprofile" target="_blank" data-config-href="linkedin">LinkedIn</a>
                 </div>
             </div>
             <div class="footer-decoration">
@@ -686,8 +690,9 @@
         </div>
     </footer>
 
-    <!-- Scripts -->
+    <!-- Scripts: config.js must load BEFORE main.js -->
+    <script src="js/config.js"></script>
+    <script src="js/robot-arm.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
-
