@@ -67,7 +67,7 @@ const CONFIG = {
     },
     
     // ========== PROFILE ==========
-    profileImage: "assets/images/profile.jpg",
+    profileImage: "propic.jpeg",
     profileId: "ROBOTICS_ENG_001", // Fun ID shown on profile frame
 };
 
