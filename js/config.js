@@ -13,64 +13,52 @@ const CONFIG = {
         last: "Festa",
         full: "Giuseppe Festa"
     },
-    
-    title: "Robotics Engineer",
-    
+
+    title: "Control & AI Engineer for Humanoid Robots",
+
     // Tagline shown in hero section
-    tagline: "Engineering the future of humanoid robotics. Transforming science fiction into science fact, one servo at a time.",
-    
+    tagline: "Building the future of <span class=\"highlight\">humanoid robotics</span> — from embedded control to AI-driven locomotion. Always seeking an opportunity to change the world.",
+
     // ========== CONTACT & SOCIAL ==========
-    email: "your.email@example.com",
-    
+    email: "giuseppefesta@protonmail.com",
+
     social: {
         github: "https://github.com/A-Common-Guy",
         linkedin: "https://www.linkedin.com/in/giuseppe-festa-3a0531174/",
-        // Add more social links as needed:
-        // twitter: "https://twitter.com/yourhandle",
-        // youtube: "https://youtube.com/@yourchannel",
     },
-    
+
     // ========== DOCUMENTS ==========
     cv: "documents/Giuseppe_Festa_Curriculum_Vitae.pdf",
-    
+
     // ========== TYPING ANIMATION ==========
-    // Phrases that rotate in the hero section
     typingPhrases: [
-        "Robotics Engineer",
-        "Humanoid Systems Developer",
-        "Control Systems Expert",
-        "AI & Motion Planner",
-        "Innovation Enthusiast"
+        "Control & AI Engineer",
+        "Humanoid Robotics Developer",
+        "Embedded Systems Team Lead",
+        "Computer Vision Engineer",
+        "Startup Co-Founder & CTO",
     ],
-    
+
     // ========== ABOUT SECTION ==========
     about: {
-        intro: `Hello! I'm a passionate <span class="highlight">Robotics Engineer</span> 
-                dedicated to pushing the boundaries of what's possible in humanoid robotics 
-                and autonomous systems.`,
-        
-        mission: `My mission is to bridge the gap between human capabilities and robotic 
-                  potential, creating machines that can work alongside us, assist us, and 
-                  help us explore new frontiers.`,
-        
-        focus: `Currently focused on humanoid locomotion, manipulation systems, and 
-                integrating advanced AI with mechanical precision. Always learning, 
-                always building, always innovating.`
+        intro: `Control Engineer with a passion for innovation and sustainability. Currently <span class="highlight">Embedded Control Engineer Team Lead at Neura Robotics</span> (Zurich), building RT systems and state estimation for humanoid robots.`,
+
+        mission: `I've co-invented patented technology, co-founded startups, and shipped real products at Michelin, Terna, and Neura Robotics — with a consistent 4.0 GPA and both BSc and MSc with honours from Politecnico di Milano.`,
+
+        focus: `Currently focused on RT embedded control, DDS-based robotic interfaces, and humanoid locomotion. Alumni of the prestigious Alta Scuola Politecnica honour program (PoliMi & PoliTo). Multilingual: Italian, English (C2), Spanish (B2), German (A2).`
     },
-    
+
     // ========== STATISTICS ==========
-    // Update these numbers to reflect your experience
     stats: {
         yearsExperience: 5,
-        projectsCompleted: 10,
-        hoursOfCoding: 1000
+        projectsCompleted: 8,
+        hoursOfCoding: 5000
     },
-    
+
     // ========== PROFILE ==========
     profileImage: "assets/images/profile.jpg",
-    profileId: "ROBOTICS_ENG_001", // Fun ID shown on profile frame
+    profileId: "CTRL_AI_ENG_001",
 };
 
 // Make config available globally
 window.CONFIG = CONFIG;
-
