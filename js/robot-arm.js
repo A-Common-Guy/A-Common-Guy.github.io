@@ -45,16 +45,16 @@ class RobotArm {
         this.animationFrame = null;
         this.time = 0;
         
-        // Colors matching the cyberpunk theme
+        // Colors tuned to the new quiet, warm portfolio theme.
         this.colors = {
-            primary: '#00f0ff',
-            primaryDim: 'rgba(0, 240, 255, 0.3)',
-            primaryGlow: 'rgba(0, 240, 255, 0.6)',
-            secondary: '#ff00a0',
-            accent: '#00ff88',
-            joint: '#0a0a0f',
-            metal: '#1a1a2e',
-            metalLight: '#2a2a4e'
+            primary: '#11110f',
+            primaryDim: 'rgba(17, 17, 15, 0.18)',
+            primaryGlow: 'rgba(255, 93, 42, 0.45)',
+            secondary: '#1746ff',
+            accent: '#ff5d2a',
+            joint: '#f6f3ec',
+            metal: '#24211d',
+            metalLight: '#5f574d'
         };
         
         // Idle animation parameters

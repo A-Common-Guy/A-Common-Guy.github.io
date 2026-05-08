@@ -14,10 +14,10 @@ const CONFIG = {
         full: "Giuseppe Festa"
     },
 
-    title: "Control & AI Engineer for Humanoid Robots",
+    title: "I build robots",
 
     // Tagline shown in hero section
-    tagline: "Building the future of <span class=\"highlight\">humanoid robotics</span> — from embedded control to AI-driven locomotion. Always seeking an opportunity to change the world.",
+    tagline: "From embedded control loops to ROS2 interfaces, perception, and real hardware, I build the systems that let robots move with intent.",
 
     // ========== CONTACT & SOCIAL ==========
     email: "giuseppefesta@protonmail.com",
@@ -28,15 +28,15 @@ const CONFIG = {
     },
 
     // ========== DOCUMENTS ==========
-    cv: "documents/Giuseppe_Festa_Curriculum_Vitae.pdf",
+    cv: "documents/Giuseppe_Festa_Curriculum_Vitae (3).pdf",
 
     // ========== TYPING ANIMATION ==========
     typingPhrases: [
         "Control & AI Engineer",
-        "Humanoid Robotics Developer",
-        "Embedded Systems Team Lead",
-        "Computer Vision Engineer",
-        "Startup Co-Founder & CTO",
+        "Humanoid robot builder",
+        "Embedded systems lead",
+        "Computer vision engineer",
+        "Startup co-founder",
     ],
 
     // ========== ABOUT SECTION ==========
