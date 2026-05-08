@@ -369,6 +369,18 @@ h3 {
     line-height: 1.6;
 }
 
+.inline-link {
+    color: var(--ink);
+    font-weight: 800;
+    text-decoration-color: rgba(255, 93, 42, 0.55);
+    text-decoration-thickness: 2px;
+    text-underline-offset: 4px;
+}
+
+.inline-link:hover {
+    color: var(--accent);
+}
+
 .section {
     width: var(--container);
     margin: 0 auto;

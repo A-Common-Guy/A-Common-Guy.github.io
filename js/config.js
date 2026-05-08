@@ -16,9 +16,6 @@ const CONFIG = {
 
     title: "I build robots",
 
-    // Tagline shown in hero section
-    tagline: "From embedded control loops to ROS2 interfaces, perception, and real hardware, I build the systems that let robots move with intent.",
-
     // ========== CONTACT & SOCIAL ==========
     email: "giuseppefesta@protonmail.com",
 
