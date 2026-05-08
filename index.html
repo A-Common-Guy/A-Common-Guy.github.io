@@ -453,20 +453,21 @@
                 <button class="filter-btn active" data-filter="all">All</button>
                 <button class="filter-btn" data-filter="robotics">Robotics</button>
                 <button class="filter-btn" data-filter="software">Software</button>
-                <button class="filter-btn" data-filter="research">Research</button>
+                <button class="filter-btn" data-filter="opensource">Open Source</button>
+                <button class="filter-btn" data-filter="hardware">Hardware</button>
             </div>
             <div class="projects-grid">
-                <!-- Project Card Template - Duplicate and modify for new projects -->
+
+                <!-- Neura Robotics -->
                 <article class="project-card" data-category="robotics">
                     <div class="project-image">
-                        <img src="assets/images/project-placeholder.jpg" alt="Project Name" onerror="this.style.display='none'">
-                        <div class="project-overlay">
-                            <a href="projects/project-1.html" class="project-link">
-                                <span>View Details</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                </svg>
-                            </a>
+                        <img src="assets/images/neura-humanoid.jpg" alt="Neura Robotics Humanoid" onerror="this.style.display='none'">
+                        <div class="project-overlay confidential">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            <span>Confidential</span>
                         </div>
                         <div class="project-status">
                             <span class="status-dot"></span>
@@ -475,29 +476,65 @@
                     </div>
                     <div class="project-info">
                         <span class="project-category">Robotics</span>
-                        <h3 class="project-title">Humanoid Robot Project</h3>
+                        <h3 class="project-title">Humanoid Robot Control — Neura Robotics</h3>
                         <p class="project-description">
-                            Brief description of the project. What problem does it solve? 
-                            What technologies are involved?
+                            RT embedded control systems and state estimation for humanoid robots.
+                            Low-level actuator control, firmware development, and DDS-based command
+                            interfaces. Leading the embedded control team in Zurich.
                         </p>
                         <div class="project-tech">
-                            <span>ROS2</span>
-                            <span>Python</span>
+                            <span>Embedded RT</span>
+                            <span>DDS</span>
                             <span>C++</span>
+                            <span>Firmware</span>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-card" data-category="software">
+                <!-- SOEM -->
+                <article class="project-card" data-category="opensource">
                     <div class="project-image">
-                        <img src="assets/images/project-placeholder.jpg" alt="Project Name" onerror="this.style.display='none'">
+                        <img src="assets/images/soem.jpg" alt="SOEM EtherCAT" onerror="this.style.display='none'">
                         <div class="project-overlay">
-                            <a href="projects/project-2.html" class="project-link">
-                                <span>View Details</span>
+                            <a href="https://github.com/OpenEtherCATsociety/SOEM" class="project-link" target="_blank" rel="noopener">
+                                <span>View on GitHub</span>
                                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
                                     <path d="M7 17L17 7M17 7H7M17 7V17"/>
                                 </svg>
                             </a>
+                        </div>
+                        <div class="project-status completed">
+                            <span class="status-dot"></span>
+                            <span>Contributor</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Open Source</span>
+                        <h3 class="project-title">SOEM — Simple Open EtherCAT Master</h3>
+                        <p class="project-description">
+                            Active contributor to SOEM, the widely used open-source EtherCAT master library
+                            written in C. Used in real-time industrial and robotics applications for
+                            deterministic fieldbus communication with servo drives and actuators.
+                        </p>
+                        <div class="project-tech">
+                            <span>C</span>
+                            <span>EtherCAT</span>
+                            <span>Real-Time</span>
+                            <span>Fieldbus</span>
+                        </div>
+                    </div>
+                </article>
+
+                <!-- Thinking! Stage Robot -->
+                <article class="project-card" data-category="robotics">
+                    <div class="project-image">
+                        <img src="assets/images/thinking-robot.jpg" alt="Thinking! Stage Robot" onerror="this.style.display='none'">
+                        <div class="project-overlay confidential">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            <span>Confidential</span>
                         </div>
                         <div class="project-status completed">
                             <span class="status-dot"></span>
@@ -505,55 +542,91 @@
                         </div>
                     </div>
                     <div class="project-info">
-                        <span class="project-category">Software</span>
-                        <h3 class="project-title">Control System Software</h3>
+                        <span class="project-category">Robotics</span>
+                        <h3 class="project-title">Custom Stage Robot — Thinking!</h3>
                         <p class="project-description">
-                            Add description for your software project here. 
-                            Highlight key features and achievements.
+                            Designed and built a custom robot capable of unique movements for live stage
+                            performances. Full stack: 3D modelling and printing, ROS2 software, RF coupling
+                            via Altium/Espressif, and DMX512 synchronised distributed systems.
                         </p>
                         <div class="project-tech">
-                            <span>Python</span>
-                            <span>TensorFlow</span>
-                            <span>OpenCV</span>
+                            <span>ROS2</span>
+                            <span>Altium</span>
+                            <span>DMX512</span>
+                            <span>Espressif</span>
                         </div>
                     </div>
                 </article>
 
-                <article class="project-card" data-category="research">
+                <!-- Michelin Fault Detection -->
+                <article class="project-card" data-category="software">
                     <div class="project-image">
-                        <img src="assets/images/project-placeholder.jpg" alt="Project Name" onerror="this.style.display='none'">
-                        <div class="project-overlay">
-                            <a href="projects/project-3.html" class="project-link">
-                                <span>View Details</span>
-                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                    <path d="M7 17L17 7M17 7H7M17 7V17"/>
-                                </svg>
-                            </a>
+                        <img src="assets/images/michelin-vision.jpg" alt="Michelin Fault Detection" onerror="this.style.display='none'">
+                        <div class="project-overlay confidential">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            <span>Confidential</span>
                         </div>
                         <div class="project-status completed">
                             <span class="status-dot"></span>
-                            <span>Published</span>
+                            <span>Deployed</span>
                         </div>
                     </div>
                     <div class="project-info">
-                        <span class="project-category">Research</span>
-                        <h3 class="project-title">Research Paper / Thesis</h3>
+                        <span class="project-category">Software</span>
+                        <h3 class="project-title">Tire Defect Detection System — Michelin</h3>
                         <p class="project-description">
-                            Description of your research work. 
-                            Include publication details if applicable.
+                            Fast, reliable vision-based fault detection system deployed on Michelin's car
+                            tire production line. Built with OpenCV and TensorFlow in C++ and Python,
+                            with GPU workload parallelisation via Vulkan.
                         </p>
                         <div class="project-tech">
-                            <span>MATLAB</span>
-                            <span>Simulation</span>
-                            <span>Analysis</span>
+                            <span>OpenCV</span>
+                            <span>TensorFlow</span>
+                            <span>C++</span>
+                            <span>Vulkan</span>
                         </div>
                     </div>
                 </article>
 
-                <!-- Add more project cards here -->
+                <!-- Dynamis PCR Inverter -->
+                <article class="project-card" data-category="hardware">
+                    <div class="project-image">
+                        <img src="assets/images/dynamis-inverter.jpg" alt="Dynamis PCR Inverter" onerror="this.style.display='none'">
+                        <div class="project-overlay confidential">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            <span>Confidential</span>
+                        </div>
+                        <div class="project-status completed">
+                            <span class="status-dot"></span>
+                            <span>Completed</span>
+                        </div>
+                    </div>
+                    <div class="project-info">
+                        <span class="project-category">Hardware</span>
+                        <h3 class="project-title">3-Phase 20 kW Inverter — Dynamis PCR</h3>
+                        <p class="project-description">
+                            Designed a three-phase 20 kW modular inverter to drive custom motors for a
+                            Formula SAE electric racing car. Full custom PCB and FOC software using
+                            MATLAB, OrCAD, CubeMX and STM32 Keil.
+                        </p>
+                        <div class="project-tech">
+                            <span>FOC</span>
+                            <span>STM32</span>
+                            <span>OrCAD</span>
+                            <span>MATLAB</span>
+                        </div>
+                    </div>
+                </article>
+
             </div>
             <div class="projects-cta">
-                <p>More projects coming soon...</p>
+                <p>Most projects are under NDA — happy to discuss them in a conversation.</p>
                 <a href="#contact" class="btn btn-secondary">
                     <span class="btn-text">Get in Touch</span>
                     <span class="btn-icon">→</span>
